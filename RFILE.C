@@ -1,0 +1,27 @@
+#include"stdio.h"
+#include"conio.h"
+void main()
+{
+  int rno,m1,m2,m3,t;
+  float avg;
+  char nam[25];
+  FILE *fp;
+  fp=fopen("mrk.txt","r");
+  clrscr();
+  while (!feof(fp))
+  {
+  fscanf(fp,"%d,%[^\,],%d,%d,%d",&rno,nam,&m1,&m2,&m3);
+  t=m1+m2+m3;
+  avg=t/3.0;
+  printf("Register No. : %d\n",rno);
+  printf("Name         : %s\n",nam);
+  printf("Tamil Mark   : %d\n",m1);
+  printf("English Mark : %d\n",m2);
+  printf("Maths Mark   : %d\n",m3);
+  printf("Total Mark   : %d\n",t);
+  printf("Average Mark : %f\n",avg);
+  getch();
+  }
+  fclose(fp);
+  getch();
+}
